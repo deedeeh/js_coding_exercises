@@ -14,11 +14,9 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   const vatPrice = originalPrice * (vatRate / 100);
   const priceAfterVAT = originalPrice + vatPrice;
-  if (priceAfterVAT - Math.floor(priceAfterVAT) !== 0) {
-    return parseFloat(priceAfterVAT.toFixed(2));
-  } else {
-    return priceAfterVAT;
-  }
+  return (priceAfterVAT - Math.floor(priceAfterVAT) !== 0) 
+    ? parseFloat(priceAfterVAT.toFixed(2))
+    : priceAfterVAT;
 }
 
 function getSalePrice(originalPrice, reduction) {
