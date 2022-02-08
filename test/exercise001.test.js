@@ -100,7 +100,7 @@ describe("reverseAllWords", () => {
 });
 
 describe("countLinuxUsers", () => {
-  test.only("returns 0 if no Linux users found", () => {
+  test("returns 0 if no Linux users found", () => {
     const users = [
       { name: "Heather", OS: "Windows 8", type: "Windows" },
       { name: "Paul", OS: "Firefox OS", type: "Unknown" },
@@ -110,7 +110,7 @@ describe("countLinuxUsers", () => {
     expect(countLinuxUsers(users)).toBe(0);
   });
 
-  test.only("returns the correct number of Linux users found", () => {
+  test("returns the correct number of Linux users found", () => {
     const users = [
       { name: "Heather", OS: "Ubuntu 18.04", type: "Linux" },
       { name: "Paul", OS: "Ubuntu 16.04", type: "Linux" },
@@ -125,12 +125,12 @@ describe("countLinuxUsers", () => {
 });
 
 describe("getMeanScore", () => {
-  test("returns the mean score from an array of scores", () => {
+  test.only("returns the mean score from an array of scores", () => {
     expect(getMeanScore([8, 9, 7])).toBe(8);
     expect(getMeanScore([88, 86, 93])).toBe(89);
   });
 
-  test("returns the mean to 2 decimal places", () => {
+  test.only("returns the mean to 2 decimal places", () => {
     expect(getMeanScore([24, 44, 56, 11, 12, 17, 34])).toBe(28.29);
   });
 });
