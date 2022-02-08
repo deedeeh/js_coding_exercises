@@ -76,11 +76,11 @@ describe("getMiddleCharacter", () => {
 });
 
 describe("reverseWord", () => {
-  test.only("returns the provided word, reversed", () => {
+  test("returns the provided word, reversed", () => {
     expect(reverseWord("foo")).toBe("oof");
   });
 
-  test.only("returns a longer sentence, reversed", () => {
+  test("returns a longer sentence, reversed", () => {
     expect(reverseWord("why would you even want to do this?")).toBe(
       "?siht od ot tnaw neve uoy dluow yhw"
     );
@@ -88,11 +88,11 @@ describe("reverseWord", () => {
 });
 
 describe("reverseAllWords", () => {
-  test("reverses a single word in an array", () => {
+  test.only("reverses a single word in an array", () => {
     expect(reverseAllWords(["jest"])).toEqual(["tsej"]);
   });
 
-  test("reverses a multiple words in an array", () => {
+  test.only("reverses a multiple words in an array", () => {
     expect(
       reverseAllWords(["jest", "mocha", "rspec", "jasmine", "selenium"])
     ).toEqual(["tsej", "ahcom", "cepsr", "enimsaj", "muineles"]);
