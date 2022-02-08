@@ -136,19 +136,19 @@ describe("getMeanScore", () => {
 });
 
 describe("simpleFizzBuzz", () => {
-  test.only("returns 'fizz' if the number is divisible by 3", () => {
+  test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });
 
-  test.only("returns 'buzz' if the number is divisible by 5", () => {
+  test("returns 'buzz' if the number is divisible by 5", () => {
     expect(simpleFizzBuzz(5)).toBe("buzz");
   });
 
-  test.only("returns the number if the number is divisible by neither 3 nor 5", () => {
+  test("returns the number if the number is divisible by neither 3 nor 5", () => {
     expect(simpleFizzBuzz(4)).toBe(4);
   });
 
-  test.only("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
+  test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
   });
 });
