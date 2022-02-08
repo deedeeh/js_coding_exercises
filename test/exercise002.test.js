@@ -7,7 +7,7 @@ const {
 } = require("../challenges/exercise002");
 
 describe("getFillings", () => {
-  test.only("returns the fillings of a sandwich", () => {
+  test("returns the fillings of a sandwich", () => {
     const sandwich = {
       bread: "Sourdough",
       fillings: ["brie", "relish", "lettuce"],
