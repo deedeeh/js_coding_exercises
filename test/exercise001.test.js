@@ -66,21 +66,21 @@ describe("getSalePrice", () => {
 });
 
 describe("getMiddleCharacter", () => {
-  test.only("returns the middle character from a string of odd length", () => {
+  test("returns the middle character from a string of odd length", () => {
     expect(getMiddleCharacter("bears!!!!")).toBe("s");
   });
 
-  test.only("returns the middle 2 characters from a string of even length", () => {
+  test("returns the middle 2 characters from a string of even length", () => {
     expect(getMiddleCharacter("help!!")).toBe("lp");
   });
 });
 
 describe("reverseWord", () => {
-  test("returns the provided word, reversed", () => {
+  test.only("returns the provided word, reversed", () => {
     expect(reverseWord("foo")).toBe("oof");
   });
 
-  test("returns a longer sentence, reversed", () => {
+  test.only("returns a longer sentence, reversed", () => {
     expect(reverseWord("why would you even want to do this?")).toBe(
       "?siht od ot tnaw neve uoy dluow yhw"
     );
