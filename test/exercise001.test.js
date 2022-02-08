@@ -125,30 +125,30 @@ describe("countLinuxUsers", () => {
 });
 
 describe("getMeanScore", () => {
-  test.only("returns the mean score from an array of scores", () => {
+  test("returns the mean score from an array of scores", () => {
     expect(getMeanScore([8, 9, 7])).toBe(8);
     expect(getMeanScore([88, 86, 93])).toBe(89);
   });
 
-  test.only("returns the mean to 2 decimal places", () => {
+  test("returns the mean to 2 decimal places", () => {
     expect(getMeanScore([24, 44, 56, 11, 12, 17, 34])).toBe(28.29);
   });
 });
 
 describe("simpleFizzBuzz", () => {
-  test("returns 'fizz' if the number is divisible by 3", () => {
+  test.only("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });
 
-  test("returns 'buzz' if the number is divisible by 5", () => {
+  test.only("returns 'buzz' if the number is divisible by 5", () => {
     expect(simpleFizzBuzz(5)).toBe("buzz");
   });
 
-  test("returns the number if the number is divisible by neither 3 nor 5", () => {
+  test.only("returns the number if the number is divisible by neither 3 nor 5", () => {
     expect(simpleFizzBuzz(4)).toBe(4);
   });
 
-  test("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
+  test.only("returns 'fizzbuzz' if the number is divisible by 3 and 5", () => {
     expect(simpleFizzBuzz(15)).toBe("fizzbuzz");
   });
 });
