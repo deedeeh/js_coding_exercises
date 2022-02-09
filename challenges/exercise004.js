@@ -34,7 +34,13 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  const onlyIntegers = [];
+  for(let i = 0; i < nums.length; i++) {
+    if(nums[i] === parseInt(nums[i])) {
+      onlyIntegers.push(nums[i]);
+    }
+  }
+  return onlyIntegers;
 }
 
 function getCities(users) {

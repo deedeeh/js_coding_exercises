@@ -59,7 +59,7 @@ describe("findVerbs", () => {
 });
 
 describe("getIntegers", () => {
-  test("returns an array containing only integers", () => {
+  test.only("returns an array containing only integers", () => {
     const nums = [1, 3.5, 2.1, 1, 4, 9];
     expect(getIntegers(nums)).toEqual([1, 1, 4, 9]);
     expect(getIntegers([])).toEqual([]);
