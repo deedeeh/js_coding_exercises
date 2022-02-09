@@ -39,7 +39,18 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  let numsAppearInBoth = [];
+  arr1.forEach(num1 => {
+    arr2.forEach(num2 => {
+      if(num1 === num2) {
+        numsAppearInBoth.push(num1);
+      }
+    })
+  })
+  numsAppearInBoth = numsAppearInBoth.filter((num, index) => {
+    return numsAppearInBoth.indexOf(num) === index;
+  })
+  return numsAppearInBoth.sort();
 }
 
 module.exports = {
