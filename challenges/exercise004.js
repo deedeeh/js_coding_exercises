@@ -25,7 +25,7 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
   const foundVerbs = [];
   for(let i = 0; i < words.length; i++) {
-    if(words[i].substring(0, 2) === "to") {
+    if(words[i].substring(0, 3) === "to ") {
       foundVerbs.push(words[i]);
     }
   }

@@ -32,7 +32,7 @@ describe("findNamesBeginningWith", () => {
 });
 
 describe("findVerbs", () => {
-  test.only("returns an array of words that are considered verbs (because they begin with 'to ')", () => {
+  test("returns an array of words that are considered verbs (because they begin with 'to ')", () => {
     const words = [
       "to eat",
       "fajita",
