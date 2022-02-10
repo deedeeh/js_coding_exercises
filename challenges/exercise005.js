@@ -4,8 +4,7 @@ const findNextNumber = (nums, n) => {
   if(!nums.includes(n) || nums.indexOf(n) === nums.length - 1) {
     return null
   } 
-  const index = nums.indexOf(n)
-  return nums[index + 1];
+  return nums[nums.indexOf(n) + 1]; 
 };
 
 const count1sand0s = str => {
