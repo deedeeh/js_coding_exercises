@@ -53,7 +53,7 @@ describe("count1sand0s", () => {
 });
 
 describe("reverseNumber", () => {
-  test("reverses the digits of a number", () => {
+  test.only("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
     expect(reverseNumber(12345)).toBe(54321);
