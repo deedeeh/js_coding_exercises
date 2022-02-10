@@ -62,20 +62,20 @@ describe("reverseNumber", () => {
 });
 
 describe("sumArrays", () => {
-  test.only("returns the total of the numbers in all sub arrays", () => {
+  test("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
     expect(sumArrays(arrs)).toBe(44);
   });
 });
 
 describe("arrShift", () => {
-  test("returns an array with the first and last items swapped", () => {
+  test.only("returns an array with the first and last items swapped", () => {
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
     expect(arrShift([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
   });
 
-  test("makes no difference when the array length is < 2", () => {
+  test.only("makes no difference when the array length is < 2", () => {
     expect(arrShift([1])).toEqual([1]);
     expect(arrShift([])).toEqual([]);
   });
