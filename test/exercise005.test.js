@@ -69,13 +69,13 @@ describe("sumArrays", () => {
 });
 
 describe("arrShift", () => {
-  test.only("returns an array with the first and last items swapped", () => {
+  test("returns an array with the first and last items swapped", () => {
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
     expect(arrShift([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
   });
 
-  test.only("makes no difference when the array length is < 2", () => {
+  test("makes no difference when the array length is < 2", () => {
     expect(arrShift([1])).toEqual([1]);
     expect(arrShift([])).toEqual([]);
   });
@@ -140,7 +140,7 @@ describe("findNeedle", () => {
 });
 
 describe("getWordFrequencies", () => {
-  test("returns the frequencies of each word in a string", () => {
+  test.only("returns the frequencies of each word in a string", () => {
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
       world: 1
@@ -160,13 +160,13 @@ describe("getWordFrequencies", () => {
     });
   });
 
-  test("ignores capitalisation", () => {
+  test.only("ignores capitalisation", () => {
     expect(getWordFrequencies("Hello hello hello")).toEqual({
       hello: 3
     });
   });
 
-  test("ignores punctuation", () => {
+  test.only("ignores punctuation", () => {
     // Hint: Google "JavaScript remove special characters from string" to get some ideas!
     expect(
       getWordFrequencies("Hello, hello hello! What have we here?")
