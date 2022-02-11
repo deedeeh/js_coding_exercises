@@ -85,7 +85,33 @@ describe("getComplementaryDNA", () => {
 });
 
 describe("isItPrime", () => {
+  test("throws an error if not a number passed", () => {
+    expect(() => {
+      isItPrime();
+    }).toThrow("n is required");
 
+    expect(() => {
+      isItPrime("foo");
+    }).toThrow("A Number is required");
+  })
+
+  test("returns false if number passed is 0 or 1", () => {
+    expect(isItPrime(0)).toBe(false);
+    expect(isItPrime(1)).toBe(false);
+  });
+
+  test("returns true if number passed is a prime number", () => {
+    expect(isItPrime(7)).toBe(true);
+    expect(isItPrime(11)).toBe(true);
+    expect(isItPrime(89)).toBe(true);
+    expect(isItPrime(757)).toBe(true);
+  });
+
+  test("returns false if number passed is not a prime number", () => {
+    expect(isItPrime(10)).toBe(false);
+    expect(isItPrime(164)).toBe(false);
+    expect(isItPrime(4300)).toBe(false);
+  })
 });
 
 describe("createMatrix", () => {
