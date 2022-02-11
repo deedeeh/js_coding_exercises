@@ -68,7 +68,20 @@ describe("isValidDNA", () => {
 });
 
 describe("getComplementaryDNA", () => {
+  test("throws an error if no string passed", () => {
+    expect(() => {
+      getComplementaryDNA();
+    }).toThrow("str is required");
 
+    expect(() => {
+      getComplementaryDNA(2);
+    }).toThrow("A String is required")
+  })
+
+  test("returns the complementary base pairs of a valid DNA string", ()=> {
+    expect(getComplementaryDNA("AATG")).toBe("TTAC");
+    expect(getComplementaryDNA("GGGTTACCAAG")).toBe("CCCAATGGTTC");
+  })
 });
 
 describe("isItPrime", () => {
