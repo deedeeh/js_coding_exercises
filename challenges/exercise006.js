@@ -118,7 +118,18 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-};
+  if (!Array.isArray(staff)) throw new Error("A staff Array is required");
+  if (typeof day !== 'string') throw new Error("A day String is required");
+  const staffRotaForDay = []
+  if(staff.length > 0) {
+    staff.forEach(employee => {
+      if(employee.rota.includes(day)) {
+        staffRotaForDay.push(employee.name)
+      }
+    })
+  }
+  return staffRotaForDay.length >= 3
+}
 
 module.exports = {
   sumMultiples,
@@ -127,4 +138,4 @@ module.exports = {
   isItPrime,
   createMatrix,
   areWeCovered
-};
+}
