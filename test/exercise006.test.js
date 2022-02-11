@@ -115,7 +115,49 @@ describe("isItPrime", () => {
 });
 
 describe("createMatrix", () => {
+  test("throws an error if no number passed", () => {
+    expect(() => {
+      createMatrix(undefined, "hello");
+    }).toThrow("n is required");
 
+    expect(() => {
+      createMatrix([], "hello");
+    }).toThrow("A Number is required");
+  });
+
+  test("throws an error if no string passed", () => {
+    expect(() => {
+      createMatrix(2, undefined);
+    }).toThrow("fill is required");
+
+    expect(() => {
+      createMatrix(2, []);
+    }).toThrow("A fill of type String is required")
+  });
+
+  test("returns an empty array if n is 0", () => {
+    expect(createMatrix(0, "foo")).toEqual([]);
+  });
+
+  test("returns an array of n arrays filled with fill string", () => {
+    const catMatrix = [
+      ["cat", "cat", "cat"],
+      ["cat", "cat", "cat"],
+      ["cat", "cat", "cat"]
+    ]
+
+    const iceCreamMatrix = [
+      ["ice cream", "ice cream", "ice cream", "ice cream", "ice cream"],
+      ["ice cream", "ice cream", "ice cream", "ice cream", "ice cream"],
+      ["ice cream", "ice cream", "ice cream", "ice cream", "ice cream"],
+      ["ice cream", "ice cream", "ice cream", "ice cream", "ice cream"],
+      ["ice cream", "ice cream", "ice cream", "ice cream", "ice cream"]
+    ]
+
+    expect(createMatrix(1, "foo")).toEqual([ ["foo"] ]);
+    expect(createMatrix(3, "cat")).toEqual(catMatrix);
+    expect(createMatrix(5, "ice cream")).toEqual(iceCreamMatrix);
+  })
 });
 
 describe("areWeCovered", () => {
