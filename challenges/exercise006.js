@@ -6,6 +6,12 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  const multiplesOf3And5 = arr.filter(num => {
+    if(num % 3 === 0 || num % 5 === 0) {
+      return num 
+    }
+  });
+  return multiplesOf3And5.reduce((previousVal, currentVal) => previousVal + currentVal);
 };
 
 /**
