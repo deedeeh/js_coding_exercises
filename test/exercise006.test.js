@@ -36,7 +36,35 @@ describe("sumMultiples", () => {
 });
 
 describe("isValidDNA", () => {
+  test("throws an error if no string passed", () => {
+    expect(() => {
+      isValidDNA();
+    }).toThrow("str is required");
 
+    expect(() => {
+      isValidDNA(12);
+    }).toThrow("A String is required");
+
+    expect(() => {
+      isValidDNA([]);
+    }).toThrow("A String is required");
+  })
+
+  test("returns false if the string is empty", () => {
+    expect(isValidDNA("")).toBe(false);
+  });
+
+  test("returns true if it is a valid DNA string that should contain C, G, T or A characters", () => {
+    expect(isValidDNA("ABBTTTK")).toBe(true);
+  });
+
+  test("returns false if it is not a valid DNA string", () => {
+    expect(isValidDNA("HHWEOOOO")).toBe(false);
+  });
+
+  test("ignores case sensitive string", () => {
+    expect(isValidDNA("alggct")).toBe(true);
+  });
 });
 
 describe("getComplementaryDNA", () => {

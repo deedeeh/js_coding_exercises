@@ -23,6 +23,21 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (!(typeof str === 'string')) throw new Error("A String is required")
+  let isValid = false; 
+  if(str.length > 0) {
+    str.toUpperCase().split('').forEach(char => {
+      switch(char) {
+        case "C":
+        case "G":
+        case "T":
+        case "A":
+          isValid = true
+          break;
+      }
+    })
+  }
+  return isValid;
 };
 
 /**
