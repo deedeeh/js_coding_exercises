@@ -50,6 +50,8 @@ const createRange = (start, end, step) => {
         }
       }
     }
+  } else {
+    rangeNumbers.push(start);
   }
   return rangeNumbers;
 };

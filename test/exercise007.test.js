@@ -53,8 +53,10 @@ describe("createRange", () => {
     }).toThrow("An end Number is required");
   });
 
-  test("returns an empty array if start and end are 0", () => {
-    expect(createRange(0, 0)).toEqual([]);
+  test("returns an array with start number if start and end are the same numbers", () => {
+    expect(createRange(0, 0)).toEqual([0]);
+    expect(createRange(4, 4, 2)).toEqual([4]);
+    expect(createRange(-10, -10, 5)).toEqual([-10]);
   });
 
   test("returns a range of numbers without a step parameter", () => {
