@@ -90,7 +90,108 @@ describe("createRange", () => {
 });
 
 describe("getScreentimeAlertList", () => {
+  test("throws an error if no users array passed", () => {
+    expect(() => {
+      getScreentimeAlertList();
+    }).toThrow("users is required");
 
+    expect(() => {
+      getScreentimeAlertList("", "2019-10-09");
+    }).toThrow("A users Array is required");
+  });
+
+  test("throws an error if no date passed", () => {
+    expect(() => {
+      getScreentimeAlertList([]);
+    }).toThrow("date is required");
+
+    expect(() => {
+      getScreentimeAlertList([], {});
+    }).toThrow("A date String is required");
+  });
+
+  test("returns an empty array if no users provided", () => {
+    expect(getScreentimeAlertList([], "2019-05-04")).toEqual([]);
+  });
+
+  test("returns an array if no users used more than 100 minutes of screenTime for the given date", () => {
+    const users1 = [
+      {
+        username: "beth_1234",
+        name: "Beth Smith",
+        screenTime: [
+          { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40} },
+          { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
+          { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19} },
+          { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61} }
+        ]
+      },
+      {
+        username: "sam_j_1989",
+        name: "Sam Jones",
+        screenTime: [
+          { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10} },
+          { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+          { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31} }
+        ]
+      }
+    ]
+
+    expect(getScreentimeAlertList(users1, "2019-06-13")).toEqual([]);
+  });
+
+  test("returns an array of usernames of users used more than 100 minutes of screenTime for the given date", () => {
+    const users2 = [
+      {
+        username: "beth_1234",
+        name: "Beth Smith",
+        screenTime: [
+          { date: "2019-05-01", usage: { twitter: 35, instagram: 22, facebook: 40} },
+          { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
+          { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19} },
+          { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61} }
+        ]
+      },
+      {
+        username: "sam_j_1989",
+        name: "Sam Jones",
+        screenTime: [
+          { date: "2019-05-04", usage: { mapMyRun: 20, whatsApp: 30, facebook: 40, safari: 20} },
+          { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+          { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31} }
+        ]
+      }
+    ]
+    expect(getScreentimeAlertList(users2, "2019-05-02")).toEqual(["beth_1234"]);
+    expect(getScreentimeAlertList(users2, "2019-05-04")).toEqual(["beth_1234", "sam_j_1989"]);
+  });
+
+  test("returns the correct usernames of users if the given date is an empty usage object", () => {
+    const users3 = [
+      {
+        username: "beth_1234",
+        name: "Beth Smith",
+        screenTime: [
+          { date: "2019-05-01", usage: { twitter: 35, instagram: 22, facebook: 40} },
+          { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31} },
+          { date: "2019-05-03", usage: {} },
+          { date: "2021-08-01", usage: { twitter: 10, instagram: 56, facebook: 61} }
+        ]
+      },
+      {
+        username: "sam_j_1989",
+        name: "Sam Jones",
+        screenTime: [
+          { date: "2019-05-03", usage: {} },
+          { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16} },
+          { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31} },
+          { date: "2021-08-01", usage: {} }
+        ]
+      }
+    ]
+    expect(getScreentimeAlertList(users3, "2021-08-01")).toEqual(["beth_1234"]);
+    expect(getScreentimeAlertList(users3, "2019-05-03")).toEqual([]);
+  });
 });
 
 describe("hexToRGB", () => {
