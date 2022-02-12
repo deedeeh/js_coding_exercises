@@ -216,5 +216,82 @@ describe("hexToRGB", () => {
 });
 
 describe("findWinner", () => {
+  test("throws and error if no board passed", () => {
+    expect(() => {
+      findWinner();
+    }).toThrow("board is required");
 
+    expect(() => {
+      findWinner("");
+    }).toThrow("A board Array is required");
+  });
+
+  test("returns null if no winners", () => {
+    const board1 = [
+      ["0", "0", null],
+      ["X", null, "0"],
+      ["X", null, "0"]
+    ]
+    expect(findWinner(board1)).toBe(null);
+  }); 
+
+  test("returns winner if player X or player 0 wins", () => {
+    const board2 = [
+      ["X", "0", null],
+      ["X", null, "0"],
+      ["X", null, "0"]
+    ]
+
+    const board3 = [
+      ["X", "X", "X"],
+      ["0", null, "0"],
+      [null, null, "0"]
+    ]
+
+    const board4 = [
+      ["0", "X", "X"],
+      ["0", "0", null],
+      ["X", null, "0"]
+    ]
+
+    const board5 = [
+      ["X", null, "X"],
+      ["0", "0", "0"],
+      ["X", "X", "0"]
+    ]
+
+    const board6 = [
+      ["X", "0", "X"],
+      [null, "0", "X"],
+      ["X", "0", "0"]
+    ]
+
+    const board7 = [
+      ["0", "0", "X"],
+      [null, null, "X"],
+      ["X", "0", "X"]
+    ]
+
+    const board8 = [
+      ["0", "0", "X"],
+      [null, "X", null],
+      ["X", "0", "X"]
+    ]
+
+    const board9 = [
+      ["0", "X", "X"],
+      ["X", "X", null],
+      ["0", "0", "0"]
+    ]
+
+    expect(findWinner(board2)).toBe("X");
+    expect(findWinner(board3)).toBe("X");
+    expect(findWinner(board4)).toBe("0");
+    expect(findWinner(board5)).toBe("0");
+    expect(findWinner(board6)).toBe("0");
+    expect(findWinner(board7)).toBe("X");
+    expect(findWinner(board8)).toBe("X");
+    expect(findWinner(board9)).toBe("0");
+
+  });
 });

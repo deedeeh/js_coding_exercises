@@ -148,6 +148,24 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  if (!Array.isArray(board)) throw new Error("A board Array is required");
+  let winner = ""
+  const boardXO = board.flat();
+  if((boardXO[0] === boardXO[3] && boardXO[3] === boardXO[6]) 
+  || (boardXO[0] === boardXO[1] && boardXO[1] === boardXO[2]) 
+  || (boardXO[0] === boardXO[4] && boardXO[4] === boardXO[8])) {
+    winner = boardXO[0]; 
+  } else if((boardXO[3] === boardXO[4] && boardXO[4] === boardXO[5]) 
+  || (boardXO[1] === boardXO[4] && boardXO[4] === boardXO[7]) 
+  || (boardXO[2] === boardXO[4] && boardXO[4] === boardXO[6])) {
+    winner = boardXO[4]
+  } else if((boardXO[2] === boardXO[5] && boardXO[5] === boardXO[8]) 
+  ||(boardXO[6] === boardXO[7] && boardXO[7] === boardXO[8])) {
+    winner = boardXO[8]
+  } else {
+    winner = null;
+  }
+  return winner;
 };
 
 module.exports = {
