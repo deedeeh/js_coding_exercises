@@ -4,6 +4,14 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  if (typeof n !== 'number') throw new Error("A Number is required")
+  let summedDigits = 0
+  if(n >= 0) {
+    Math.round(n).toString().split('').forEach(str => {
+      summedDigits += parseInt(str)
+    });
+  }
+  return summedDigits;
 };
 
 /**
