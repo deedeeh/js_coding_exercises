@@ -44,16 +44,13 @@ function findSentencesContaining(sentences, str) {
   })
 }
 
-//Still trying to figure it out 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // const longestSides = [];
-  // for(let i = 0; i < triangles.length; i++) {
-  //   for(let j = 0; j < triangles[i].length; j++) {
-  //     triangles[i][j]
-  //   }
-  // }
-  // return longestSides;
+  const longestSides = [];
+  for(let i = 0; i < triangles.length; i++) {
+    longestSides.push(Math.max(...triangles[i]))
+  }
+  return longestSides;
 }
 
 
