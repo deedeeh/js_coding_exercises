@@ -195,7 +195,24 @@ describe("getScreentimeAlertList", () => {
 });
 
 describe("hexToRGB", () => {
+  test("throws an error if no hexadecimal color passed", () => {
+    expect(() => {
+      hexToRGB();
+    }).toThrow("hexStr is required");
 
+    expect(() => {
+      hexToRGB(20);
+    }).toThrow("A hexStr of type String is required");
+  })
+
+  test("returns the correct RGB code for the passed hexadecimal color", () => {
+    expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+    expect(hexToRGB("#1A0BF5")).toBe("rgb(26,11,245)");
+  });
+
+  test("Ignores case sensitive hexadecimal code", () => {
+    expect(hexToRGB("#0a78e6")).toBe("rgb(10,120,230)");
+  });
 });
 
 describe("findWinner", () => {
