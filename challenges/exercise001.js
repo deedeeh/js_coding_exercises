@@ -14,9 +14,7 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   const vatPrice = originalPrice * (vatRate / 100);
   const priceAfterVAT = originalPrice + vatPrice;
-  return (priceAfterVAT - Math.floor(priceAfterVAT) !== 0) 
-    ? parseFloat(priceAfterVAT.toFixed(2))
-    : priceAfterVAT;
+  return Number(priceAfterVAT.toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -51,23 +49,14 @@ function reverseAllWords(words) {
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  let usersCount = 0;
-  users.forEach(user => {
-    if(user.type === "Linux") {
-      usersCount++;
-    }
-  });
-  return usersCount;
+  return users.filter(user => user.type === "Linux").length;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   const scoreTotal = scores.reduce((previousVal, currentVal) => previousVal + currentVal);
   const meanScore = scoreTotal / scores.length;
-  if(!Number.isInteger(meanScore)) {
-    return parseFloat(meanScore.toFixed(2));
-  }
-  return meanScore;
+  return Number(meanScore.toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
